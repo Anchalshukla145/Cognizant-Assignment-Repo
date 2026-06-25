@@ -1,0 +1,7 @@
+Big O notation is used to measure how the running time or memory usage of an algorithm grows as the input size increases.
+
+Linear Search
+Searches each element one by one.
+
+Binary Search
+Works only on sorted data.
