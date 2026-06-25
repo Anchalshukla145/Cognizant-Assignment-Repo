@@ -1,0 +1,17 @@
+Bubble sort
+repeatedly cmpares the adjecent elements and swap if they are in wrong sorting order
+largest moved to the end and smallest moved to the starting
+inplace sorting
+stable sort
+
+Insertion Sort 
+an element is picked and inserted at the right position generally the left side creating a sorted arranging order
+stable sort
+inplace sort
+
+Quick Sort
+Uses Divide and conqure 
+Selects a pivot element
+Partitions array around pivot
+unstable sort
+inplace sort
