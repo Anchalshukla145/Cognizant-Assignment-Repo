@@ -1,0 +1,64 @@
+Technical Notes: JPA vs Hibernate vs Spring Data JPA
+
+1. Comparison
+
+Aspect              JPA                             Hibernate                       Spring Data JPA
+---------------------------------------------------------------------------------------------------------------------
+What is it?         Specification / Standard        ORM Framework / JPA Provider    Data Access Abstraction Layer
+Code Type           Interfaces & annotations        Concrete implementation classes Repository layer wrappers
+Execution           Needs a provider to run         Directly interacts with JDBC    Generates repository impls
+Transactions        Defines @Transactional          Wraps SQL transactions          Manages transaction boundaries
+
+
+2. Core Objects of Hibernate Framework
+- SessionFactory: Heavy-weight thread-safe connection and mapping cache. Created once per database instance.
+- Session: Non-thread-safe context wrapping a JDBC connection. Used to perform CRUD operations on entities.
+- Transaction: Demarcates transactional boundaries programmatically (begin, commit, rollback).
+- Query: Used to build and execute HQL, JPQL, or native SQL queries.
+
+
+3. Querying Approaches in Spring Boot
+
+- HQL (Hibernate Query Language) & JPQL (Java Persistence Query Language):
+  Object-oriented query languages targeting entities and fields instead of tables/columns.
+  Example:
+  @Query("SELECT e FROM Employee e WHERE e.department.name = :deptName")
+  List<Employee> findByDeptName(@Param("deptName") String deptName);
+
+- Native Queries:
+  Standard SQL queries executed directly on the underlying database.
+  Example:
+  @Query(value = "SELECT * FROM employee WHERE em_salary > :salary", nativeQuery = true)
+  List<Employee> findHighEarnersNative(@Param("salary") double salary);
+
+- Criteria API:
+  Type-safe, programmatic way to construct queries. Extremely useful for dynamic queries.
+  Example:
+  CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+  CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
+  Root<Employee> employee = cq.from(Employee.class);
+  cq.where(cb.greaterThan(employee.get("salary"), 50000.00));
+  List<Employee> result = entityManager.createQuery(cq).getResultList();
+
+
+4. Advanced Persistence Features
+
+- Pagination & Sorting:
+  Spring Data JPA integrates pagination and sorting via Pageable and Sort parameters.
+  Example:
+  Page<Employee> pagedResult = employeeRepository.findAll(PageRequest.of(0, 10, Sort.by("name").ascending()));
+
+- Auditing:
+  JPA Auditing automatically populates fields like creation/modification dates.
+  Example:
+  @CreatedDate
+  @Column(name = "created_date", updatable = false)
+  private LocalDateTime createdDate;
+
+- Projections:
+  Allows fetching specific subsets of attributes instead of loading full entities.
+  Example:
+  public interface EmployeeSummary {
+      String getName();
+      double getSalary();
+  }

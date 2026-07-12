@@ -1,0 +1,62 @@
+Hibernate Annotation Configuration Walkthrough
+
+Hibernate Annotation Configuration replaces external mapping XML files with Java annotations placed directly on the entity class.
+
+1. Mapped Persistent Class Example
+==================================
+package com.cognizant.model;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "employee")
+public class Employee {
+
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "em_id")
+   private int id;
+
+   @Column(name = "em_name")
+   private String name;
+
+   @Column(name = "em_salary")
+   private double salary;
+
+   @Column(name = "em_permanent")
+   private boolean permanent;
+
+   @Column(name = "em_date_of_birth")
+   @Temporal(TemporalType.DATE)
+   private Date dateOfBirth;
+
+   // Getters and Setters
+}
+
+
+2. Explanation of Annotations
+==============================
+- @Entity: Marks the class as a JPA entity.
+- @Table(name = "..."): Declares the database table name that this entity maps to.
+- @Id: Declares the primary key field.
+- @GeneratedValue(strategy = ...): Configures the generation strategy for the identifier (e.g. IDENTITY for database auto-increment).
+- @Column(name = "..."): Specifies the mapping column name and options in the table.
+
+
+3. Configuration with hibernate.cfg.xml
+=======================================
+Even when using annotations, hibernate.cfg.xml is still used to declare database connection credentials and list the annotated classes:
+
+<hibernate-configuration>
+   <session-factory>
+      <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+      <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ormlearn</property>
+      <property name="hibernate.connection.username">root</property>
+      <property name="hibernate.connection.password">******</property>
+      <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+      <!-- Reference the annotated class here -->
+      <mapping class="com.cognizant.model.Employee"/>
+   </session-factory>
+</hibernate-configuration>

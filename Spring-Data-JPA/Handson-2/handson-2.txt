@@ -1,0 +1,72 @@
+Hibernate XML Configuration Walkthrough
+
+Hibernate XML Configuration is the classic way of configuring Hibernate and mapping Java objects (POJOs) to database tables.
+
+1. Hibernate Configuration File (hibernate.cfg.xml)
+
+This file sets up the database connection and global properties.
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+      <!-- Database Connection Settings -->
+      <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+      <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ormlearn</property>
+      <property name="hibernate.connection.username">root</property>
+      <property name="hibernate.connection.password">******</property>
+
+      <!-- SQL Dialect -->
+      <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+      <!-- Echo all executed SQL to stdout -->
+      <property name="show_sql">true</property>
+
+      <!-- Map XML mapping documents -->
+      <mapping resource="Employee.hbm.xml"/>
+   </session-factory>
+</hibernate-configuration>
+
+
+2. Hibernate Mapping File (Employee.hbm.xml)
+
+This file maps the fields of a Java class to columns in the database table.
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.cognizant.model.Employee" table="employee">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <!-- Primary Key mapping -->
+      <id name="id" type="int" column="em_id">
+         <generator class="native"/>
+      </id>
+      
+      <!-- Field mappings -->
+      <property name="name" column="em_name" type="string"/>
+      <property name="salary" column="em_salary" type="double"/>
+      <property name="permanent" column="em_permanent" type="boolean"/>
+      <property name="dateOfBirth" column="em_date_of_birth" type="date"/>
+   </class>
+</hibernate-mapping>
+
+
+3. Core Objects and APIs in Hibernate
+
+- SessionFactory: A thread-safe, heavy-weight object that represents a configured database connection pool and metadata. It is created once per application lifecycle and is used to open Session instances.
+- Session: A short-lived, non-thread-safe object representing a conversation between the application and the database. Used to perform CRUD operations.
+- Transaction: Interface used to demarcate transactional boundaries programmatically (begin, commit, rollback).
+
+Key Methods:
+- session.save(object): Inserts a record and returns the generated primary key.
+- session.get(Class, id): Retrieves a persistent instance by its primary key.
+- session.delete(object): Deletes the record associated with the persistent object.
+- session.createQuery(hql).list(): Executes an HQL query and returns results.
+- tx.commit(): Commits changes to the database.
+- tx.rollback(): Reverts changes in case of exceptions.
