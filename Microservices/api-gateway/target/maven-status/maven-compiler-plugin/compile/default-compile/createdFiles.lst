@@ -1,0 +1,2 @@
+com\cognizant\gateway\ApiGatewayApplication.class
+com\cognizant\gateway\filter\LoggingFilter.class

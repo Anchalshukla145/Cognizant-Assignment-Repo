@@ -1,0 +1,4 @@
+com\cognizant\userservice\controller\UserController.class
+com\cognizant\userservice\model\User.class
+com\cognizant\userservice\UserServiceApplication.class
+com\cognizant\userservice\service\UserService.class

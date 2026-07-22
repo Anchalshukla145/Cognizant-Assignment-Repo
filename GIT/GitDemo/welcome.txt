@@ -1,0 +1,2 @@
+Welcome to Git Version Control System!
+This file is tracked as part of Git Hands-On Lab 1.
