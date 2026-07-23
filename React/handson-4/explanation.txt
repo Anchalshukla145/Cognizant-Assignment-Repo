@@ -1,0 +1,19 @@
+TASK EXPLANATION (HOL 4: Blog API Feed)
+=======================================
+Fetch database entries asynchronously from a REST API and handle errors.
+
+WORKFLOW:
+1. Initialized empty posts state inside the constructor of the class component.
+2. Invoked REST call to JSONPlaceholder API in the `componentDidMount()` hook.
+3. Processed and saved JSON result to state to trigger re-rendering.
+4. Catch errors in API fetch or component lifecycle using bounds.
+
+FEATURES:
+- Asynchronous API consumption using Fetch.
+- Dynamic list map rendering.
+- Error alerts on fetch exceptions.
+
+CONCEPTS USED:
+- React State management inside Constructor.
+- React Lifecycle hook: `componentDidMount()`.
+- Error boundary callback: `componentDidCatch()`.

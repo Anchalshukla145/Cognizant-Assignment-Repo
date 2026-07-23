@@ -1,0 +1,21 @@
+TASK EXPLANATION (HOL 13: Blogger App)
+=======================================
+Showcase multiple techniques for conditional rendering in React.
+
+WORKFLOW:
+1. Wrote BookDetails, BlogDetails, and CourseDetails views.
+2. Created buttons to choose between these views.
+3. Implemented three distinct conditional checks:
+   - Ternary check for Books.
+   - Logical AND check for Blogs.
+   - Element variable check for Courses.
+
+FEATURES:
+- Tab navigation selectors.
+- Book, Blog, and Course listings shown on condition.
+
+CONCEPTS USED:
+- Switch-case state routing.
+- Ternary conditional evaluation (`selection === 'books' ? <BookDetails /> : null`).
+- Logical short-circuit AND (`selection === 'blogs' && <BlogDetails />`).
+- Element Variables (`let element; if...`).

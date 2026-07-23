@@ -1,0 +1,18 @@
+TASK EXPLANATION (HOL 5: Cohort Details)
+=========================================
+Create styled cohort box cards using CSS Modules and inline styles.
+
+WORKFLOW:
+1. Wrote a CSS module stylesheet containing box dimensions, borders, and margins.
+2. Injected stylesheet into the cohort details page.
+3. Iterated and rendered cohorts inside CSS module divs.
+4. Styled heading color conditionally (green if ongoing, blue if completed).
+
+FEATURES:
+- Clean card blocks with border-radius and border.
+- Ongoing classes marked in Green, completed classes in Blue.
+
+CONCEPTS USED:
+- CSS Modules (`CohortDetails.module.css`).
+- ClassName mapping (`styles.box`).
+- Conditional inline styling (`color: cohort.status === 'ongoing' ? 'green' : 'blue'`).

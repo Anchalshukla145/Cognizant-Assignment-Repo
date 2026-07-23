@@ -1,0 +1,20 @@
+TASK EXPLANATION (HOL 9: Cricket App)
+=====================================
+Demonstrate ES6 syntax features inside React and conditional toggling.
+
+WORKFLOW:
+1. Created `ListofPlayers` displaying players with scores below 70 via arrow filter.
+2. Created `IndianPlayers` splitting teams using destructuring, and spread operator array merge.
+3. Main component uses a boolean flag state. Clicking a button toggles between the two components.
+
+FEATURES:
+- Toggle switch button.
+- Player score listings below 70.
+- Odd/Even destructured squads.
+- Merged array listing.
+
+CONCEPTS USED:
+- ES6 Map and Arrow Filter functions.
+- Array Destructuring assignments.
+- Spread Operator array merging (`...`).
+- Flag-based conditional view toggling.

@@ -1,0 +1,18 @@
+TASK EXPLANATION (HOL 12: Ticket Booking)
+===========================================
+Render Guest page or User booking dashboard based on login state.
+
+WORKFLOW:
+1. Created GuestView showing flight directory with locked booking buttons.
+2. Created UserView showing welcome message, log out button, and booking confirmation form.
+3. Main App component tracks loggedIn status. Click actions swap pages.
+
+FEATURES:
+- Login / Logout simulation toggling.
+- Booking form submission that outputs confirmation reference.
+- Dynamic view restriction.
+
+CONCEPTS USED:
+- React state authorization flag.
+- Conditional rendering: `{loggedIn ? <UserView /> : <GuestView />}`.
+- Form inputs state synchronization.

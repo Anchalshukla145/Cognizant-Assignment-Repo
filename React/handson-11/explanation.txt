@@ -1,0 +1,20 @@
+TASK EXPLANATION (HOL 11: Event Examples)
+===========================================
+Handle clicks, forms, parameters, and synthetic event metadata.
+
+WORKFLOW:
+1. Added increment/decrement click hooks. The increment hook triggers state update and log message.
+2. Hooked parameter passing buttons ("Say Welcome").
+3. Capture synthetic click details and display.
+4. Created an INR-to-Euro converter form that calculates rate on submit.
+
+FEATURES:
+- Multi-method click dispatch.
+- Arguments passing buttons.
+- Synthetic event target reporting.
+- Currency calculation form.
+
+CONCEPTS USED:
+- React `useState` hooks.
+- Synthetic Event handling (`e.preventDefault()`).
+- Form submission intercept.

@@ -1,0 +1,17 @@
+TASK EXPLANATION (HOL 3: Score Calculator)
+===========================================
+Pass score properties to a child component and calculate the average percentage.
+
+WORKFLOW:
+1. Created a functional component `CalculateScore` that receives score attributes via props.
+2. Formulated average percentage calculation: (Total / Goal) * 100.
+3. Called the component from App passing details for "Anchal Shukla".
+
+FEATURES:
+- Displays candidate name, school, total, and goal marks.
+- Computes and displays the average score.
+
+CONCEPTS USED:
+- React Functional components.
+- Attribute parsing using Props.
+- JavaScript calculations inside JSX.

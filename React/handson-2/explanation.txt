@@ -1,0 +1,17 @@
+TASK EXPLANATION (HOL 2: StudentApp)
+=====================================
+Create a student management portal rendering multiple page views.
+
+WORKFLOW:
+1. Created three sub-components (Home, About, Contact) as class components.
+2. Declared a main App component that renders a portal heading and calls all three components.
+3. Renders the unified views.
+
+FEATURES:
+- Portal header layout.
+- Individual messages for Home, About, and Contact.
+
+CONCEPTS USED:
+- React Class Components (`class Component extends React.Component`).
+- Component nesting and calling (`<Home />`, `<About />`, `<Contact />`).
+- Class `render()` lifecycle function.

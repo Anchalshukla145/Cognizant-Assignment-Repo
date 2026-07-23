@@ -1,0 +1,16 @@
+TASK EXPLANATION (HOL 1: Welcome App)
+=====================================
+Simple welcome page displaying a header.
+
+WORKFLOW:
+1. Created a React functional component named App.
+2. Returned a single JSX layout containing an <h1> header with the text "welcome to the first session of React".
+3. Rendered it to the browser DOM.
+
+FEATURES:
+- Displays a clean welcome heading.
+- Comment-free, basic JSX structure.
+
+CONCEPTS USED:
+- JSX (JavaScript XML) rendering.
+- Functional component declaration.

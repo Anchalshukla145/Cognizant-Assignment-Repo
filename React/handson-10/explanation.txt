@@ -1,0 +1,17 @@
+TASK EXPLANATION (HOL 10: Office Space Rental)
+===============================================
+Loop through office spaces and style prices conditionally.
+
+WORKFLOW:
+1. Created mock office listings containing names, rents, and addresses.
+2. Iterated the array in JSX to output listings inside grid cards.
+3. Bound style properties to color text: red if rent < 60000, green if rent >= 60000.
+
+FEATURES:
+- Display layout showing featured space and list.
+- Dynamic text color alerts for budget boundaries.
+
+CONCEPTS USED:
+- JSX list looping using `.map()`.
+- Element attributes binding.
+- Price conditional styling: `<span style={{ color: item.rent < 60000 ? 'red' : 'green' }}>`.
